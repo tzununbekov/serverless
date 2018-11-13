@@ -1,4 +1,4 @@
-service: serverless-test
+service: serverless-foo
 
 provider:
   name: triggermesh
@@ -13,19 +13,20 @@ functions:
     environment:
       FUNCTION: bar
 
-  py:
-    handler: py/handler.py
-    description: "python fragment"
-    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/python2.7/openfaas-python2.7-runtime.yaml
-    environment: 
-      FUNCTION: py
+  nodejs:
+    handler: https://github.com/openfaas/serverless-openfaas-nodejs
+    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/nodejs/openfaas-nodejs-runtime.yaml
+    description: "nodejs fragment"
+    buildargs:
+      - DIRECTORY=hello-world
 
   remote:
     handler: https://gitlab.com/tzununbekov/tesfunc
     revision: master
-    description: "remote go function"
+    description: "Go function with another repository as source"
     environment:
       FUNCTION: remote
 
 include:
   - foo/single-function.yaml
+  - https://github.com/tzununbekov/serverless-include
