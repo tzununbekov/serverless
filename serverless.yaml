@@ -1,9 +1,10 @@
 service: serverless-foo
+description: "serverless.yaml parsing test"
 
 provider:
   name: triggermesh
+  registry: unauthenticated.registry.svc.cluster.local
   runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/go/openfaas-go-runtime.yaml
-  description: "serverless.yaml parsing test"
   environment:
     FOO: BAR
 
