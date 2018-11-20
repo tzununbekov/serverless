@@ -8,10 +8,10 @@ provider:
     FOO: BAR
 
 functions:
-#  bar:
-#    handler: bar/main.go
-#    environment:
-#      FUNCTION: bar
+  bar:
+    handler: bar/main.go
+    environment:
+      FUNCTION: bar
 
   nodejs:
     handler: https://github.com/openfaas/serverless-openfaas-nodejs
