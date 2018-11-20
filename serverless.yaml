@@ -30,5 +30,5 @@ functions:
       FUNCTION: remote
 
 include:
-  - foo/single-function.yaml
+#  - foo/single-function.yaml
   - https://github.com/tzununbekov/serverless-include
