@@ -19,6 +19,8 @@ functions:
     description: "nodejs fragment"
     buildargs:
       - DIRECTORY=hello-world
+    environment:
+      FUNCTION: nodejs
 
   remote:
     handler: https://gitlab.com/tzununbekov/tesfunc
