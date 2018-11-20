@@ -22,12 +22,12 @@ functions:
     environment:
       FUNCTION: nodejs
 
-  remote:
-    handler: https://gitlab.com/tzununbekov/tesfunc
-    revision: master
-    description: "Go function with another repository as source"
-    environment:
-      FUNCTION: remote
+#   remote:
+#     handler: https://gitlab.com/tzununbekov/tesfunc
+#     revision: master
+#     description: "Go function with another repository as source"
+#     environment:
+#       FUNCTION: remote
 
 include:
   - foo/single-function.yaml
