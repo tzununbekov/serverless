@@ -8,19 +8,19 @@ provider:
     FOO: BAR
 
 functions:
-#  bar:
-#    handler: bar/main.go
-#    environment:
-#      FUNCTION: bar
+  bar:
+    handler: bar/main.go
+    environment:
+      FUNCTION: bar
 
-#  nodejs:
-#    handler: https://github.com/openfaas/serverless-openfaas-nodejs
-#    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/nodejs/openfaas-nodejs-runtime.yaml
-#    description: "nodejs fragment"
-#    buildargs:
-#      - DIRECTORY=hello-world
-#    environment:
-#      FUNCTION: nodejs
+  nodejs:
+    handler: https://github.com/openfaas/serverless-openfaas-nodejs
+    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/nodejs/openfaas-nodejs-runtime.yaml
+    description: "nodejs fragment"
+    buildargs:
+      - DIRECTORY=hello-world
+    environment:
+      FUNCTION: nodejs
 
   remote:
     handler: https://gitlab.com/tzununbekov/tesfunc
@@ -30,5 +30,5 @@ functions:
       FUNCTION: remote
 
 include:
-#  - foo/single-function.yaml
+  - foo/single-function.yaml
   - https://github.com/tzununbekov/serverless-include
