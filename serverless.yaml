@@ -14,11 +14,11 @@ functions:
       FUNCTION: bar
 
   nodejs:
-    handler: https://github.com/openfaas/serverless-openfaas-nodejs
+    handler: https://github.com/openfaas/faas
     runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/nodejs/openfaas-nodejs-runtime.yaml
     description: "nodejs fragment"
     buildargs:
-      - DIRECTORY=hello-world
+      - DIRECTORY=sample-functions/BaseFunctions/node
     environment:
       FUNCTION: nodejs
 
