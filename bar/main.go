@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Printf("%s\n", os.Getenv("FUNCTION"))
+	fmt.Printf("Os env \"function\" value is %q\n", os.Getenv("FUNCTION"))
 }
