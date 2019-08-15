@@ -15,7 +15,7 @@ functions:
 
   nodejs:
     handler: https://github.com/openfaas/faas
-    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/nodejs/openfaas-nodejs-runtime.yaml
+    runtime: https://raw.githubusercontent.com/triggermesh/runtime-build-tasks/master/openfaas/nodejs-runtime.yaml
     description: "nodejs fragment"
     buildargs:
       - DIRECTORY=sample-functions/BaseFunctions/node
