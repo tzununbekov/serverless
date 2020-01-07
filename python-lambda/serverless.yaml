@@ -1,0 +1,13 @@
+service: python-lambda
+description: Sample knative service
+provider:
+  name: triggermesh
+  registry: knative.registry.svc.cluster.local
+functions:
+  api-gateway-demo:
+    source: handler.py
+    runtime: https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/python-3.7/runtime.yaml
+    buildargs:
+    - HANDLER=handler.endpoint
+    environment:
+      EVENT: API_GATEWAY

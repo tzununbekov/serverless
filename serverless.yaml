@@ -1,33 +1,41 @@
-service: serverless-foo
-description: "serverless.yaml parsing test"
+service: tm-demo
+description: "serverless.yaml deployment test"
 
 provider:
   name: triggermesh
-  runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/go/openfaas-go-runtime.yaml
   environment:
     FOO: BAR
 
 functions:
-  bar:
-    handler: bar/main.go
+  go-openfaas:
+    source: go-openfaas/main.go
+    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/go/openfaas-go-runtime.yaml
     environment:
       FUNCTION: bar
 
-  nodejs:
-    handler: https://github.com/openfaas/faas
-    runtime: https://raw.githubusercontent.com/triggermesh/runtime-build-tasks/master/openfaas/nodejs-runtime.yaml
+  go-lambda:
+    source: go-lambda/main.go
+    runtime: https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/go-1.x/runtime.yaml
+    environment:
+      foo: bar
+    
+  nodejs-openfaas:
+    source: https://github.com/openfaas/faas
+    runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/openfaas/nodejs-runtime.yaml
     description: "nodejs fragment"
     buildargs:
       - DIRECTORY=sample-functions/BaseFunctions/node
     environment:
       FUNCTION: nodejs
 
-  remote:
-    handler: https://gitlab.com/tzununbekov/tesfunc
-    description: "Go function with another repository as source"
+  nodejs-lambda:
+    source: nodejs-lambda/handler.js
+    runtime: https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/node-10.x/runtime.yaml
+    buildargs:
+    - HANDLER=handler.sayHelloAsync
     environment:
-      FUNCTION: remote
+      foo: bar
 
 include:
-  - foo/single-function.yaml
+  - python-lambda/serverless.yaml
   - https://github.com/tzununbekov/serverless-include

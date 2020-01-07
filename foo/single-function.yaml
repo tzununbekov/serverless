@@ -1,7 +1,0 @@
-service: local-include
-
-functions:
-  hello:
-    handler: main.go
-    environment:
-      FUNCTION: hello 
